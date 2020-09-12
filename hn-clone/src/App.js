@@ -2,41 +2,56 @@ import React, {useState, useEffect} from 'react';
 import logo from './logo.svg';
 import axios from "axios";
 import './App.css';
+import Header from './components/header';
+import Articles from './components/articles';
 
 function App() {
-  const [data, setData] = useState([]);
   const [error, setError] = useState("");
-  const [curStory, setCurStory] = useState("");
-
+  const [stories, setStories] = useState([]);
 
   useEffect(() => {
     console.log("useEffect fetching Data")
     axios
       .get("https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty")
-      .then(result => setData(result.data))
+      .then((result) => {
+        console.log("inside .then")
+        console.log("result", result.data)
+        console.log("result length", result.data.length)
+        Promise.all(result.data.map((curData) => {
+          console.log("fetching ind articles")
+          return axios
+            .get(`https://hacker-news.firebaseio.com/v0/item/${curData}.json?print=pretty`)
+            // .then((result) => {
+            //   console.log("inside result.data", result.data)
+            //   stories.push(result.data)
+            //   setStories(stories)
+            //   // console.log("stories", stories)
+            // })
+            // .catch(err => setError("THERES AN ERROR!")); 
+        })).then((values) => {
+          console.log("hello")
+          console.log(values);
+          setStories(values.map((value) => value.data));
+        })
+
+        // let i = 0
+        // for (i = 0; i<result.data.length; i++) {
+          
+        //   let curData = result.data[i]
+
+        // }
+      })
       .catch(err => setError("THERES AN ERROR!"));
   }, [] );
-    console.log("data", data)
-
-  // function displayData() {
-  //       let i
-  //       for (i = 0; i<data.length; i++) {
-  //         let curData = data[i]
-  //         console.log("fetching ind articles")
-  //         axios
-  //           .get(`https://hacker-news.firebaseio.com/v0/${curData}.json?print=pretty`)
-  //           .then(result => console.log("result", result))
-  //           .catch(err => setError("THERES AN ERROR!"));
-  //       }
-  //       console.log("curStory", curStory)
-  //   }
-
-  
+    console.log("stories", stories)
+    console.log("story length", stories.length)
 
   return (
     <div>
-      {displayData()}
-      {error}
+      <Header
+       stories = {stories} error = {error} setError = {setError}/>
+      <Articles
+       stories = {stories} error = {error} /> 
     </div>
   );
 }
