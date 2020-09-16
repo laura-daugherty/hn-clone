@@ -1,33 +1,23 @@
 import React, {useState, useEffect} from "react"
-import axios from "axios"
-
+import Story from "./story"
 const Articles = (props) => {
 
-
-  // function articleMap() {
-  //     return (<div>
-  //       {props.stories.map((story) => (
-          
-  //           <p>Hello, {story.id} from {story.url}!</p>
-  //       ))}
-  //       </div>);
-
-
-  // }
-
-  // console.log("stories", props.stories)
-  // console.log("length", props.stories.length)
   return (
     <div>
-      {props.stories.map((story) => {
+      <div className="stories_container">
+        {props.stories.map((story, index) => {     
+          return (
+            <Story
+              key = {story.id}
+              story = {story}
+              index = {index}
+              setStory = {props.setStory}
+              />
+          )
+        })}
         
-        // console.log(story)
-        return (
-          <p key={story.id}>{story.url}</p>
+      </div>
 
-        )
-      }
-    )}
     </div>);      
 
 
