@@ -21,7 +21,10 @@ time, mark, audio, video {
 	border: 0;
 	font-size: 100%;
 	font: inherit;
-	vertical-align: baseline;
+  vertical-align: baseline;
+  text-decoration: none; 
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+  /* font-size: .75rem */
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -29,7 +32,11 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
-	line-height: 1;
+  line-height: 1;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  margin-top: .5rem;
+
 }
 ol, ul {
 	list-style: none;
@@ -49,11 +56,14 @@ table {
 
 .App {
   text-align: center;
+
 }
 
 /* header styles */
 header {
   background-color: #FF6601;
+  font-size: 13.333px;
+  height: 24px
 }
 .left_aligned_header {
   display: flex
@@ -62,21 +72,21 @@ header {
 ul {
   display: flex;
   justify-content: space-evenly;
+  align-items:center;
 }
 
 .logo_img {
-  height: 1.5rem;
-  width: 1.5rem;
-  border: 2px solid white;
-  margin: 2px 4px 2px 2px;
-  
+  height: .9rem;
+  width: .9rem;
+  border: 1px solid white;
+  margin: 2px;
 }
 
 li {
   padding-right: 9px;
   padding-left: 9px;
-  margin-top: 9px;
-  margin-bottom: 9px;
+  /* margin-top: 9px;
+  margin-bottom: 9px; */
   justify-content:space-evenly;
   border-right: 1px solid black
 }
@@ -85,25 +95,173 @@ li:last-child {
   border-right: none
 }
 
-h1 {
-  padding: .5rem .5rem .5rem 0;
+.title {
+  padding: 5px 5px 5px 0;
   font-weight: bold;
+  color: black;
 }
 
 /* Articles Styles */
 
 .stories_container {
   display: flex;
-  flex-direction: column
+  flex-direction: column;
+  background-color: #F6F6EF;
+  padding: 2px
 }
 
 /* Story styles */
 .story_first_line {
+  display: flex;  
+}
+
+.story_second_line {
   display: flex;
-  font-size: 1rem;
-  
+  color: rgb(130, 130, 130);
+}
+
+.second_line_child_one {
+  /* padding-right: 9px; */
+  padding-left: 9px;
+  margin: 5px 0 5px 0 
+}
+
+.second_line_child {
+  border-right: 1px solid #828282;
+  padding-right: 9px;
+  padding-left: 4px;
+  margin: 5px 0 5px 0 
+
 }
 
 .stories_container {
-  font-size: .75rem
+  font-size: 10.667px;
+}
+
+.index {
+  color: #828282;
+  font-size: 10.667px;
+}
+.arrow {
+  height: .4rem;
+  padding: .1rem
+}
+.storyTitle {
+  font-size: 13.333px;
+  color: black
+}
+.storyTitle:visited {
+  color: #828282
+}
+.storyLink {
+  font-size: 10.667px;
+  color:#828282;
+  padding-left: .2rem
+}
+
+a {
+  color: #828282
+}
+
+.commentsButton {
+  text-decoration: none;
+  border: none;
+  background-color: inherit;
+  font-size: 10.667px;
+  color:#828282;
+  padding: 0 0 0 9px;
+  margin: 5px 0 5px 0 
+
+}
+
+
+/* Comments Styles */
+
+.comments_wrapper {
+  background-color: #F6F6EF;
+  padding:1rem
+}
+
+.comments_first_line {
+  display: flex;
+  /* justify-content: space-evenly; */
+  font-size: 13.333px;
+  color: black
+}
+
+.comments_first_line:visited {
+  color: #828282
+}
+
+.comments_second_line {
+  font-size: 9.333px;
+  display: flex;
+  color:#828282;
+
+}
+
+.comments_second_line_first {
+
+  margin: 5px 0 5px 0 
+}
+
+.comments_second_line_p {
+  border-right: 1px solid #828282;
+  padding-right: 9px;
+  padding-left: 9px;
+  margin: 5px 0 5px 0 
+}
+
+.stub {
+  font-size: 9.333px;
+  color:#828282;
+  margin-top: 2px;
+  padding-left:2px
+}
+
+.comment_input {
+  padding: .25rem;
+  margin-top: 20px;
+  width: 500px;
+  border: 1px solid grey
+
+}
+
+.comment_div {
+  display: flex;
+  font-family: monospace;
+  flex-flow: column;
+}
+
+.comment_button {
+  width: fit-content;
+  margin-top: 20px
+}
+
+/* comment styles */
+
+.comment {
+  display: flex;
+  flex-direction: column;
+  padding-top: 1rem 
+}
+
+.name_and_time {
+  display: flex;
+  font-size: 9.333px;
+  color:#828282;
+}
+
+.name_and_time_one {
+  padding-right: 5px;
+
+}
+
+.innerHTML {
+  font-size: 10.6667px;
+  margin: 10px 15px
+}
+
+.innerHTML p {
+ padding: 10px
 }

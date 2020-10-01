@@ -1,6 +1,6 @@
 import React from "react"
 import img from "/Users/lauradaugherty/LambdaX/hn-clone/hn-clone/src/components/images/1200px-Y_Combinator_logo.svg.png"
-
+import { Link } from "react-router-dom"
 const Header = (props) => {
 
   if (!props.stories) {
@@ -21,10 +21,10 @@ const Header = (props) => {
     return (
       <header>
         <div className="left_aligned_header">
-        <img src={img} alt="Y Combinator Logo" className="logo_img"/>
-          <h1>
+          <img src={img} alt="Y Combinator Logo" className="logo_img"/>
+          <Link className="title"to="/">
             Hacker News
-          </h1>
+          </Link>
           <ul>
             <li>new</li>
             <li>past</li>
